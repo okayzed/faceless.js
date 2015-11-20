@@ -1,29 +1,50 @@
 {
-    "name": "tobi tabi",
-    "description": "atob the sites",
-    "version": "0.1",
+    "name": "faceless - a web de-facer",
+    "short_name" : "faceless",
+    "description": "de-face the internet",
+    "version": "0.0.1",
+    "icons" : {
+      "64": "icon.png"
+    },
     "permissions": [
-    "tabs","<all_urls>"
+    "tabs","<all_urls>", "storage"
     ],
+    "page_action" : {
+      "default_icon": {
+        "38" : "icon.png"
+      },
+      "default_title": "faceless"
+    },
+    "background": {
+      "scripts": [
+        "src/underscore-min.js", "src/jquery.js",
+        "vendor/tracking.js/tracking-min.js",
+        "vendor/tracking.js/data/face-min.js",
+        "vendor/tracking.js/data/eye-min.js",
+        "vendor/tracking.js/data/mouth-min.js",
+        "background.js" ],
+      "persistent": false
+    },
     "content_scripts": [
         {
-        "matches": [
-            "http://reddit.com/*",
-            "https://reddit.com/*",
-            "http://*.reddit.com/*",
-            "https://*.reddit.com/*"
-            ],
-        "css": [
-          "tobitabi.css"
-        ],
-        "js": [
-          "src/underscore-min.js", "src/jquery.js", "src/tripcode.js", 
-          "src/md5.js",
-          "tobitabi.js",
-          "sites/reddit.js"
-        ]
+          "matches": [
+              "http://*/*",
+              "https://*/*"
+              ],
+          "css": [
+            "faceless.css"
+          ],
+          "js": [
+            "vendor/tracking.js/tracking-min.js",
+            "vendor/tracking.js/data/face-min.js",
+            "vendor/tracking.js/data/eye-min.js",
+            "vendor/tracking.js/data/mouth-min.js",
+            "src/underscore-min.js", "src/jquery.js",
+            "faceless.js"
+          ],
+          "run_at": "document_start"
         }
-    ], 
+    ],
     "manifest_version":2
 }
 

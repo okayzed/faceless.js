@@ -1,11 +1,12 @@
-.tobitabitrip div.tripcolor {
+.facelesstrip div.tripcolor {
   width: 20px; 
   display: block;
 }
 
-.tobitabitrip {
+.facelesstrip {
   height: 10px;
   width: 80px;
+  padding: 0px !important;
   display: inline-block;
   overflow-y: hidden;
 }
